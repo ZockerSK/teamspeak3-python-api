@@ -313,6 +313,16 @@ class TS3Connection(object):
         """
         self._send("sendtextmessage", ["targetmode="+str(targetmode), "target="+str(target), "msg="+str(msg)])
 
+    def clientpoke(self, target, msg):
+        """
+        Pokes the specified client with the given message
+        :param target: client_id
+        :param msg: Message to send
+        :type target: int
+        :type msg: str
+        """
+        self._send("clientpoke", ["clid=" + str(target), "msg=" + msg])
+
     def servergrouplist(self):
         """
         Returns a list of all servergroups with corresponding info.
